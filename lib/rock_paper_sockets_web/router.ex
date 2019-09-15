@@ -16,11 +16,9 @@ defmodule RockPaperSocketsWeb.Router do
   scope "/", RockPaperSocketsWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    # This route declaration MUST be below everything else! Else, it will
+    # override the rest of the routes, even the `/api` routes we've set above.
+    get "/*path", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", RockPaperSocketsWeb do
-  #   pipe_through :api
-  # end
 end
