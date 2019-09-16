@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import Main from '../components/Main';
+import MainLayout from '../layouts/MainLayout';
 
-const HomePage = () => <Main>HomePage!!</Main>;
+const HomePage = () => <MainLayout>HomePage!!</MainLayout>;
 
 export default HomePage;

@@ -7,7 +7,9 @@
   },
   "dependencies": {
     "phoenix": "file:deps/phoenix",
-    "phoenix_html": "file:deps/phoenix_html"
+    "phoenix_html": "file:deps/phoenix_html",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -15,6 +17,9 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "@emotion/core": "^10.0.17",
+    "@mdx-js/react": "^1.4.5",
+    "@reach/router": "^1.2.1",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.0",
@@ -30,9 +35,11 @@
     "optimize-css-assets-webpack-plugin": "^4.0.0",
     "prettier": "^1.18.2",
     "prettier-eslint": "^9.0.0",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
+    "rebass": "^4.0.5",
+    "styled-components": "^4.3.2",
+    "styled-system": "^5.1.2",
+    "theme-ui": "^0.2.42",
     "uglifyjs-webpack-plugin": "^1.2.4",
     "webpack": "4.28.4",
     "webpack-cli": "^3.2.1"
