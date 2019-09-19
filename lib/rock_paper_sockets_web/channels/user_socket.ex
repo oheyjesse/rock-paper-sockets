@@ -2,7 +2,7 @@ defmodule RockPaperSocketsWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", RockPaperSocketsWeb.RoomChannel
+  channel "room:*", RockPaperSocketsWeb.RoomChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
