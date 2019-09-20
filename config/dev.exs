@@ -16,7 +16,7 @@ config :rock_paper_sockets, RockPaperSockets.Repo,
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
 config :rock_paper_sockets, RockPaperSocketsWeb.Endpoint,
-  http: [port: 4000],
+  http: [port: 4321],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
