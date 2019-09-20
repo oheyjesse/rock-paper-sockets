@@ -33,4 +33,6 @@ node_modules/
 # this depending on your deployment strategy.
 /priv/static/
 
+# Local editor settings
+.vscode/
 .elixir_ls/
