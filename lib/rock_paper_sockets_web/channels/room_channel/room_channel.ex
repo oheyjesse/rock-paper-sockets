@@ -16,8 +16,12 @@ defmodule RockPaperSocketsWeb.RoomChannel do
   end
 
   def handle_in("new_msg", %{"body" => body}, socket) do
-    IO.inspect("yay")
     broadcast!(socket, "new_msg", %{body: body})
+    {:noreply, socket}
+  end
+
+  def handle_in("set_name", %{"name" => name}, socket) do
+    broadcast!(socket, "name_change", %{old_name: socket.assigns.user_id, new_name: name})
     {:noreply, socket}
   end
 end
