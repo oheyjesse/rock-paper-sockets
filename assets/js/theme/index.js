@@ -1,6 +1,6 @@
 // default theme preset
 
-export const preset = {
+export const theme = {
   colors: {
     text: '#000',
     background: '#fff',
@@ -100,6 +100,9 @@ export const preset = {
       bg: 'secondary'
     }
   },
+
+  // MDX Styles themes. Also sets global Typography values via <Styled.root>
+  // Top level wrapper
   styles: {
     root: {
       fontFamily: 'body',
@@ -120,4 +123,4 @@ export const preset = {
   }
 };
 
-export default preset;
+export default theme;
