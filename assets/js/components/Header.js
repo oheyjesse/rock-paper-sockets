@@ -2,13 +2,12 @@ import * as React from 'react';
 
 import { Box, Flex, Text } from 'rebass';
 
-const Header = ({ toggleButton }) => {
+const Header = ({ navItems }) => {
   return (
     <Box
       width={1}
-      mb={2}
       p={2}
-      // color="primary"
+      bg="backgroundSecondary"
       sx={{
         borderBottom: '2px solid',
         borderColor: 'black'
@@ -25,7 +24,7 @@ const Header = ({ toggleButton }) => {
         </Box>
 
         <Flex width="100%" m="auto" justifyContent="flex-end" alignItems="center">
-          {toggleButton}
+          {navItems.map(item => item)}
         </Flex>
       </Flex>
     </Box>

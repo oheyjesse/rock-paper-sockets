@@ -3,9 +3,10 @@
 export const theme = {
   colors: {
     text: '#000',
-    background: '#fff',
-    primary: '#07c',
-    secondary: '#30c',
+    background: '#FBDC65',
+    backgroundSecondary: '#F9CD23',
+    primary: '#40E0D0',
+    secondary: '#EA3546',
     muted: '#f6f6f9',
     gray: '#dddddf',
     highlight: 'hsla(205, 100%, 40%, 0.125)'
@@ -83,10 +84,10 @@ export const theme = {
   buttons: {
     primary: {
       fontSize: 2,
-      fontWeight: 'bold',
       color: 'background',
       bg: 'primary',
-      borderRadius: 'default'
+      borderRadius: 'default',
+      border: '2px solid black'
     },
     outline: {
       variant: 'buttons.primary',

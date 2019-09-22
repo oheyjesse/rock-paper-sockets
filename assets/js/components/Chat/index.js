@@ -1,18 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { Box, Input, Button } from 'rebass';
+import { Box, Button, Flex } from 'rebass';
+import { Input } from '@rebass/forms';
 
 const Chat = ({ channelMsg, broadcast, messages, updateMessages }) => {
-  const inputRef = useRef(null);
-
   const initialState = {
     userInput: ''
   };
-
-  // TODO: This is a hack. Remove it please
-  useEffect(() => {
-    setTimeout(() => inputRef.current.focus(), 150);
-  }, []);
 
   useEffect(() => {
     if (!channelMsg) {
@@ -49,8 +43,6 @@ const Chat = ({ channelMsg, broadcast, messages, updateMessages }) => {
     }
 
     broadcast('new_msg', { body: userInput });
-
-    inputRef.current.focus();
   };
 
   // If enter pressed
@@ -64,17 +56,19 @@ const Chat = ({ channelMsg, broadcast, messages, updateMessages }) => {
     <Box width={1}>
       {messages && messages.map((message, i) => <div key={`chat-${i}`}>{message}</div>)}
 
-      <input
-        ref={inputRef}
-        type="text"
-        value={state.userInput}
-        onChange={handleInput}
-        onKeyPress={handleKeyPress}
-      />
+      <Flex>
+        <Input
+          bg="background"
+          type="text"
+          value={state.userInput}
+          onChange={handleInput}
+          onKeyPress={handleKeyPress}
+        />
 
-      <Button color="black" bg="turquoise" onClick={sendMessage}>
-        Send!
-      </Button>
+        <Button ml={3} px={3} color="black" bg="turquoise" onClick={sendMessage}>
+          Send!
+        </Button>
+      </Flex>
     </Box>
   );
 };
