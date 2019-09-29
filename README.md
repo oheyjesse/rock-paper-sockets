@@ -1,20 +1,21 @@
-# RockPaperSockets
+# ✊✋🔌 - Rock, Paper, Sockets
 
-To start your Phoenix server:
+A small rock-paper-scissors game w/chat using Phoenix Channels (websockets) and React, embedded inside a Phoenix application.
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+## Getting Started
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+...tbc 🙈
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+### Why did I do this?
 
-## Learn more
+This is just a little project I am making for fun, and learning purposes.
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+I decided to work on a little app in Phoenix/React for a chance to work on the latest versions of the stacks, as well as learn/play with some techs I hadn't necessarily played with before.
+
+### What do I hope to learn?
+
+ - Phoenix Channels / Websockets
+ - React Channels API
+ - React Embedded inside Phoenix (As opposed to running as a separate application with a separate repo)
+ - Phoenix Tokens
+ - Elixir Releases / Deployment
