@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import MainLayout from 'src/layouts/MainLayout';
-import Chat from 'src/components/Chat';
+import Chat, { chatReducer, chatInitState } from 'src/components/Chat';
 
 import useChannel from 'src/utils/useChannel';
 
@@ -11,7 +11,7 @@ const IndexPage = () => {
   const [chatMessages, setChatMessages] = useState([]);
   const [chatVisible, setChatVisible] = useState(true);
 
-  const [channelMsg, broadcast] = useChannel('room:lobby');
+  const [chatState, broadcast] = useChannel('room:lobby', chatReducer, chatInitState);
 
   // Push a new message from channel to state
   const updateMessages = newMessage => {
@@ -64,7 +64,7 @@ const IndexPage = () => {
                   </Text>
                 </Flex>
                 <Chat
-                  channelMsg={channelMsg}
+                  chatState={chatState}
                   broadcast={broadcast}
                   messages={chatMessages}
                   updateMessages={updateMessages}

@@ -1,48 +1,61 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-import { Box, Button, Flex } from 'rebass';
+import { Box, Button, Flex, Text } from 'rebass';
 import { Input } from '@rebass/forms';
 
-const Chat = ({ channelMsg, broadcast, messages, updateMessages }) => {
-  const initialState = {
-    userInput: ''
-  };
+export const chatInitState = { messages: [] };
 
-  useEffect(() => {
-    if (!channelMsg) {
-      return;
-    }
+export const chatReducer = (state, { event, payload }) => {
+  switch (event) {
+    case 'new_msg':
+      return {
+        ...state,
+        messages: [
+          ...state.messages,
+          <Text key={`chat-${state.messages.length}`}>
+            {payload.name}: {payload.body}
+          </Text>
+        ]
+      };
+    case 'name_change':
+      return {
+        ...state,
+        messages: [
+          ...state.messages,
+          <Text fontStyle="italic" key={`chat-${state.messages.length}`}>
+            {payload.old_name} changed their name to {payload.new_name}
+          </Text>
+        ]
+      };
+    default:
+      return state;
+  }
+};
 
-    if (channelMsg.event === 'name_change') {
-      const { payload } = channelMsg;
-      updateMessages(`${payload.old_name} changed their name to ${payload.new_name}`);
-    }
+const Chat = ({ chatState, broadcast }) => {
+  const { messages } = chatState;
+  const [userInput, setUserInput] = useState('');
 
-    updateMessages(channelMsg.payload.body);
-    //eslint-disable-next-line
-  }, [channelMsg]);
-
-  const [state, setState] = useState(initialState);
-  const { userInput } = state;
-
-  if (!channelMsg) {
+  if (!chatState) {
     return null;
   }
-
-  // Update userInput state onChange function
-  const handleInput = event => {
-    const { value } = event.target;
-    setState(prevState => ({ ...prevState, userInput: value }));
-  };
 
   // Send a message via channel
   const sendMessage = () => {
     if (userInput.startsWith('/name ')) {
       const name = userInput.split(' ', 2)[1];
-      return broadcast('set_name', { name: name });
+      broadcast('set_name', { name: name });
+      return setUserInput('');
     }
 
     broadcast('new_msg', { body: userInput });
+    setUserInput('');
+  };
+
+  // Update userInput state onChange function
+  const handleInput = event => {
+    const { value } = event.target;
+    setUserInput(value);
   };
 
   // If enter pressed
@@ -54,13 +67,13 @@ const Chat = ({ channelMsg, broadcast, messages, updateMessages }) => {
 
   return (
     <Box width={1}>
-      {messages && messages.map((message, i) => <div key={`chat-${i}`}>{message}</div>)}
+      {messages && messages.map(message => message)}
 
       <Flex>
         <Input
           bg="background"
           type="text"
-          value={state.userInput}
+          value={userInput}
           onChange={handleInput}
           onKeyPress={handleKeyPress}
         />
