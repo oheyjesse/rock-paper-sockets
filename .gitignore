@@ -36,3 +36,4 @@ node_modules/
 # Local editor settings
 .vscode/
 .elixir_ls/
+.tool-versions
